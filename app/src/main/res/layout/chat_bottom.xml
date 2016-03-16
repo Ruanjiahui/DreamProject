@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:id="@+id/chat_bottom_relat"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+        <ImageView
+            android:id="@+id/chat_bottom_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:src="@mipmap/add" />
+
+
+        <Button
+            android:id="@+id/chat_bottom_but"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/button_down"
+            android:clickable="false"
+            android:enabled="false"
+            android:text="发送"
+            android:textColor="@color/White"
+            android:textSize="16sp" />
+        <!-- 设置该组件获取焦点-->
+
+        <ImageView
+            android:id="@+id/chat_bottom_image1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_toLeftOf="@id/chat_bottom_but"
+            android:src="@mipmap/smile" />
+
+        <EditText
+            android:id="@+id/chat_bottom_edit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_margin="5dp"
+            android:layout_toLeftOf="@id/chat_bottom_image1"
+            android:layout_toRightOf="@id/chat_bottom_image"
+            android:background="@drawable/edit"
+            android:padding="5dp" />
+    </RelativeLayout>
+
+
+    <com.example.administrator.ui_sdk.View.MyViewPager
+        android:id="@+id/chat_bottom_viewpager"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:visibility="gone"></com.example.administrator.ui_sdk.View.MyViewPager>
+
+    <!--<LinearLayout-->
+    <!--android:id="@+id/chat_bottom_linear"-->
+    <!--android:layout_width="fill_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="vertical">-->
+
+    <!--<com.example.administrator.listview.View.MyViewPager-->
+    <!--android:id="@+id/chat_bottom_viewpager"-->
+    <!--android:layout_width="fill_parent"-->
+    <!--android:layout_height="wrap_content"></com.example.administrator.listview.View.MyViewPager>-->
+    <!--</LinearLayout>-->
+
+</LinearLayout>

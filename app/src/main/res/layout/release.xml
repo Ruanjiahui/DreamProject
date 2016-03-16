@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/White"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/release_edit"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/dialog_bottom"
+        android:layout_below="@id/dialog_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/edit"
+        android:hint="@string/release_edit"
+        android:minLines="3"
+        android:textColor="@color/Black"
+        android:textColorHint="@color/light_gray"
+        android:textSize="16sp" />
+
+    <GridView
+        android:id="@+id/release_gridview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:numColumns="6"
+        android:visibility="gone"
+        android:verticalSpacing="1dp"
+        android:horizontalSpacing="1dp"></GridView>
+
+</LinearLayout>

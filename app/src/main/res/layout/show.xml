@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <ImageView
+        android:id="@+id/show_image"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+    <EditText
+        android:id="@+id/show_edit"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/edit"
+        android:inputType="text"
+        android:padding="5dp"
+        android:singleLine="true"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/show_linear1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/show_group_private"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/listview_item_selector"
+            android:padding="20dp"
+            android:text="@string/group_private"
+            android:textColor="@color/Blue"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/show_group_public"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:background="@drawable/listview_item_selector"
+            android:padding="20dp"
+            android:text="@string/group_public"
+            android:textColor="@color/Blue"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+</RelativeLayout>

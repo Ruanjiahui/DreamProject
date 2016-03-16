@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="light_gray">#DCDCDC</color>
+    <color name="Grey">#6b6c6e</color>
+    <color name="White">#FFFFFF</color>
+    <color name="WhiteSmoke">#F5F5F5</color>
+    <color name="Blue">#28beff</color>
+    <color name="Blue_Black">#1c69ee</color>
+    <color name="Blue_Blackest">#1cb3ee</color>
+    <color name="Red">#FF0000</color>
+    <color name="Black">#000000</color>
+    <color name="background_dark">#000000</color>
+    <color name="legacy_primary_dark">#000000</color>
+    <color name="legacy_primary">#e6e6e6</color>
+</resources>

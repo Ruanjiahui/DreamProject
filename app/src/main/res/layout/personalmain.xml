@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/WhiteSmoke">
+
+    <ScrollView
+        android:id="@+id/personal_scroll"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/personal_top"
+                layout="@layout/personal_top"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+            <LinearLayout
+                android:id="@+id/personallieanr"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/personal_text"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/listview_item_selector"
+                    android:gravity="center"
+                    android:text="@string/peronal_text"
+                    android:textColor="@color/Black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/personal_text1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/listview_item_selector"
+                    android:gravity="center"
+                    android:text="@string/peronal_text1"
+                    android:textColor="@color/Black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/personal_text2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/listview_item_selector"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="@string/peronal_text2"
+                    android:textColor="@color/Black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/personal_text3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/listview_item_selector"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="@string/peronal_text3"
+                    android:textColor="@color/Black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/personal_text4"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/listview_item_selector"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="@string/peronal_text4"
+                    android:textColor="@color/Black"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/personal_content"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"></LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="20dp">
+
+        <RelativeLayout
+            android:id="@+id/personallinear1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <RelativeLayout
+                android:id="@+id/melinear_back"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_centerVertical="true"
+                android:padding="5dp">
+
+                <ImageView
+                    android:id="@+id/personal_top_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/left" />
+
+                <TextView
+                    android:id="@+id/personal_top_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/personal_top_image"
+                    android:gravity="center"
+                    android:text="@string/back"
+                    android:textColor="@color/White"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+
+            <!--<ImageView-->
+                <!--android:id="@+id/mesetting"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_alignParentRight="true"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:paddingRight="10dp"-->
+                <!--android:src="@mipmap/setting" />-->
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/personal_editdata_linear"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/black_tran">
+
+        <TextView
+            android:id="@+id/personal_chat"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/chat"
+            android:textColor="@color/White"
+            android:textSize="20sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/personal_follow"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/follow"
+            android:textColor="@color/White"
+            android:textSize="20sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/personal_editdata"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/editdata"
+            android:textColor="@color/White"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+</RelativeLayout>
