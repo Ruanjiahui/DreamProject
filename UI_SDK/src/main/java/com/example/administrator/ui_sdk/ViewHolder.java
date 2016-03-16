@@ -14,6 +14,9 @@ import com.example.administrator.ui_sdk.View.MyGridView;
  */
 public class ViewHolder {
 
+    /**
+     * MyBaseAdapter
+     */
     public View view = null;
     public TextView item_content = null;
     public TextView item_msg = null;
@@ -43,5 +46,12 @@ public class ViewHolder {
 
     public ImageView child_linear1_image = null;
     public LinearLayout child_linear1 = null;
+
+    /**
+     * GridViewBaseAdapter
+     */
+    public ImageView gimageView = null;
+    public TextView gtextView = null;
+    public LinearLayout glinearlayout = null;
 
 }

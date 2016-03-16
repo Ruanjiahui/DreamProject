@@ -21,10 +21,8 @@ import com.example.administrator.dreamproject.R;
 import com.example.administrator.ui_sdk.DensityUtil;
 import com.example.administrator.ui_sdk.ListView_Object;
 import com.example.administrator.ui_sdk.MyOnClickInterface;
-import com.example.administrator.ui_sdk.Other.BaseActivity;
 import com.example.administrator.ui_sdk.View.MyDialog;
 import com.example.administrator.ui_sdk.View.MyWebView;
-import com.example.administrator.ui_sdk.View.SystemManager;
 
 import java.util.ArrayList;
 
@@ -64,13 +62,13 @@ public class WebViewActivity extends Activity implements View.OnClickListener {
 
         id();
 
-        DensityUtil.setRelHeight(webview_top, BaseActivity.height / 12);
+//        DensityUtil.setRelHeight(webview_top, BaseActivity.height / 12);
         webview.setWebView(object.getUrl());
         webview_top.setBackgroundResource(R.color.Blue);
         base_top_title.setText(object.getTitle());
 
         //设置沉寂式状态栏
-        SystemManager.ViewColor(webview_top, activity);
+//        SystemManager.ViewColor(webview_top, activity);
 
         base_top_relative.setOnClickListener(this);
         webview_bottom_text2.setOnClickListener(this);
@@ -120,7 +118,7 @@ public class WebViewActivity extends Activity implements View.OnClickListener {
         addItem();
         dialog = new MyDialog(context, R.style.mydialog);
         dialog.DialogState("", objects, 0, "", "");
-        dialog.setWidth(BaseActivity.width / 3 * 2);
+//        dialog.setWidth(BaseActivity.width / 3 * 2);
         dialog.setHeight(DensityUtil.dip2px(context, 55) * 4);
         dialog.setOnItemClick(new MyOnClickInterface.ItemClick() {
             @Override

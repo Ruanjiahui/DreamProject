@@ -25,12 +25,10 @@ import com.example.administrator.data_sdk.User;
 import com.example.administrator.dreamproject.Fragment.Chat_Botton_Fragment;
 import com.example.administrator.dreamproject.Identification;
 import com.example.administrator.dreamproject.R;
-import com.example.administrator.ui_sdk.DensityUtil;
 import com.example.administrator.ui_sdk.ListView_Object;
+import com.example.administrator.ui_sdk.MyBaseActivity.BaseActivity;
 import com.example.administrator.ui_sdk.MyOnClickInterface;
-import com.example.administrator.ui_sdk.Other.BaseActivity;
 import com.example.administrator.ui_sdk.Other.MyBaseAdapter;
-import com.example.administrator.ui_sdk.Other.MyViewPagerAdapter;
 import com.example.administrator.ui_sdk.View.MyViewPager;
 
 import java.util.ArrayList;
@@ -87,8 +85,38 @@ public class Comment extends BaseActivity implements AdapterView.OnItemClickList
     //用户现居住地
     private String live = "广东广州";
 
+//    @Override
+//    public void setcontentView() {
+//
+//
+//
+//    }
+//
+//    @Override
+//    public void init() {
+//        addItem();
+//        instance();
+//        setBackground(R.color.WhiteSmoke);
+//        setTitle(object.getTitle());
+//        TitleBarRight(false);
+//        Nav(0);
+//
+//        adapter = new MyBaseAdapter(context, objects, 1);
+//        DensityUtil.setHeight(chat_bottom_viewpager, BaseActivity.height / 5);
+//
+//
+//        comment_listview.setAdapter(adapter);
+//        comment_listview.setOnItemClickListener(this);
+//        comment_relat.setOnClickListener(this);
+//        chat_bottom_image.setOnClickListener(this);
+//        adapter.setIconClick(this);
+//        chat_bottom_edit.setOnClickListener(this);
+//        chat_bottom_but.setOnClickListener(this);
+//        chat_bottom_edit.addTextChangedListener(this);
+//    }
+
     @Override
-    public void setcontentView() {
+    public void inti() {
         context = this;
         activity = (Activity) context;
 
@@ -107,31 +135,6 @@ public class Comment extends BaseActivity implements AdapterView.OnItemClickList
         chat_bottom_but = (Button) view.findViewById(R.id.chat_bottom_but);
 
         contentView.addView(view);
-
-
-    }
-
-    @Override
-    public void init() {
-        addItem();
-        instance();
-        setBackground(R.color.WhiteSmoke);
-        setTitle(object.getTitle());
-        TitleBarRight(false);
-        Nav(0);
-
-        adapter = new MyBaseAdapter(context, objects, 1);
-        DensityUtil.setHeight(chat_bottom_viewpager, BaseActivity.height / 5);
-
-
-        comment_listview.setAdapter(adapter);
-        comment_listview.setOnItemClickListener(this);
-        comment_relat.setOnClickListener(this);
-        chat_bottom_image.setOnClickListener(this);
-        adapter.setIconClick(this);
-        chat_bottom_edit.setOnClickListener(this);
-        chat_bottom_but.setOnClickListener(this);
-        chat_bottom_edit.addTextChangedListener(this);
     }
 
     @Override
@@ -179,7 +182,7 @@ public class Comment extends BaseActivity implements AdapterView.OnItemClickList
         list.add(new Chat_Botton_Fragment());
         list.add(new Chat_Botton_Fragment());
 
-        chat_bottom_viewpager.setAdapter(new MyViewPagerAdapter(getSupportFragmentManager(), list, false));
+//        chat_bottom_viewpager.setAdapter(new MyViewPagerAdapter(getSupportFragmentManager(), list, false));
     }
 
     /**

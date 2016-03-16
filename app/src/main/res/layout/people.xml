@@ -14,7 +14,7 @@
             android:id="@+id/people_edit"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/edit1"
+            android:background="@drawable/edit"
             android:drawableLeft="@mipmap/search"
             android:focusable="false"
             android:focusableInTouchMode="false"

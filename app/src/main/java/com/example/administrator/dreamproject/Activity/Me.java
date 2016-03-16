@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.administrator.data_sdk.AcitivityData;
@@ -21,8 +20,7 @@ import com.example.administrator.dreamproject.Identification;
 import com.example.administrator.dreamproject.R;
 import com.example.administrator.ui_sdk.DensityUtil;
 import com.example.administrator.ui_sdk.ListView_Object;
-import com.example.administrator.ui_sdk.Other.BaseActivity;
-import com.example.administrator.ui_sdk.Other.MyBaseAdapter;
+import com.example.administrator.ui_sdk.MyBaseActivity.BaseActivity;
 
 import java.util.ArrayList;
 
@@ -49,8 +47,39 @@ public class Me extends BaseActivity implements AdapterView.OnItemClickListener 
     /**
      * 添加布局到BaseActivity
      */
+//    @Override
+//    public void setcontentView() {
+//
+//    }
+//
+//    /**
+//     * 初始化操作
+//     */
+//    @Override
+//    public void init() {
+//        id();
+//
+//        addItem();
+//
+//        melistview.setAdapter(new MyBaseAdapter(context, objects, 1));
+////
+////        //设置沉寂式状态栏
+//////        SystemManager.ViewColor(meperson);
+//        DensityUtil.setHeight(meperson, BaseActivity.height / 8);
+////        DensityUtil.setRelWidth(person_image, BaseActivity.height / 10);
+//        //去掉导航条
+//        Nav(0);
+//        //设置标题文字
+//        setTitle("我");
+//        TitleBarRight(false);
+//
+//        meperson.setOnClickListener(this);
+//        melistview.setOnItemClickListener(this);
+//
+//    }
+
     @Override
-    public void setcontentView() {
+    public void inti() {
         user = getIntent().getParcelableExtra("data");
 
         view = LayoutInflater.from(this).inflate(R.layout.memain, null);
@@ -66,32 +95,6 @@ public class Me extends BaseActivity implements AdapterView.OnItemClickListener 
 
         context = this;
         activity = (Activity) context;
-    }
-
-    /**
-     * 初始化操作
-     */
-    @Override
-    public void init() {
-        id();
-
-        addItem();
-
-        melistview.setAdapter(new MyBaseAdapter(context, objects, 1));
-//
-//        //设置沉寂式状态栏
-////        SystemManager.ViewColor(meperson);
-        DensityUtil.setHeight(meperson, BaseActivity.height / 8);
-//        DensityUtil.setRelWidth(person_image, BaseActivity.height / 10);
-        //去掉导航条
-        Nav(0);
-        //设置标题文字
-        setTitle("我");
-        TitleBarRight(false);
-
-        meperson.setOnClickListener(this);
-        melistview.setOnItemClickListener(this);
-
     }
 
     @Override
@@ -115,7 +118,7 @@ public class Me extends BaseActivity implements AdapterView.OnItemClickListener 
      */
     private void id() {
         meperson = view.findViewById(R.id.meperson);
-        base_top_relative = (RelativeLayout) findViewById(R.id.base_top_relative);
+//        base_top_relative = (RelativeLayout) findViewById(R.id.base_top_relative);
         melistview = (ListView) findViewById(R.id.melistview);
 
     }

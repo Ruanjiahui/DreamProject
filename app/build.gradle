@@ -30,8 +30,8 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:22.2.1'
     compile project(':Data_SDK')
-    compile project(':UI_SDK')
     compile project(':WebSocket')
     compile project(':share_sdk')
     compile project(':http_sdk')
+    compile project(':UI_SDK')
 }

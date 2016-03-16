@@ -61,6 +61,8 @@ public class ListView_Object {
     private String newsContent = null;
     private Bitmap icon = null;
 
+    private int icon_height = 0;
+
     private ArrayList<ChlidData> list = null;
 
     public void setResid(Bitmap resid) {
@@ -153,6 +155,10 @@ public class ListView_Object {
 
     public void setResid_center_height(int resid_center1_height) {
         this.resid_center1_height = resid_center1_height;
+    }
+
+    public void setResidHeight(int icon_height) {
+        this.icon_height = icon_height;
     }
 
     public void setNewsTitle(String newsTitle) {
@@ -296,6 +302,10 @@ public class ListView_Object {
 
     public ArrayList<ChlidData> getList() {
         return list;
+    }
+
+    public int getResidHeight() {
+        return icon_height;
     }
 
 }

@@ -1,13 +1,11 @@
 package com.example.administrator.dreamproject.Activity;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.os.Build;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -42,10 +40,9 @@ import com.example.administrator.dreamproject.R;
 import com.example.administrator.dreamproject.SQLite_Table;
 import com.example.administrator.ui_sdk.DensityUtil;
 import com.example.administrator.ui_sdk.ListView_Object;
+import com.example.administrator.ui_sdk.MyBaseActivity.BaseActivity;
 import com.example.administrator.ui_sdk.MyOnClickInterface;
-import com.example.administrator.ui_sdk.Other.BaseActivity;
 import com.example.administrator.ui_sdk.Other.ChatBaseAdapter;
-import com.example.administrator.ui_sdk.Other.MyViewPagerAdapter;
 import com.example.administrator.ui_sdk.View.MyPopWindow;
 import com.example.administrator.ui_sdk.View.MyViewPager;
 
@@ -113,9 +110,46 @@ public class Chat extends BaseActivity implements View.OnLongClickListener, MyOn
 
     private MyPopWindow popWindow = null;
 
-    @Override
-    public void setcontentView() {
+//    @Override
+//    public void setcontentView() {
+//
+//
+//    }
+//
+//    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
+//    @Override
+//    public void init() {
+//
+//        instance();
+//
+//        addItem();
+//
+//        setBackground(R.color.WhiteSmoke);
+//        setTitle(object.getTitle());
+//        TitleBarRight(false);
+//        RightIcon(R.mipmap.more);
+//
+//        Nav(0);
+//
+//        DensityUtil.setHeight(chat_bottom_viewpager, BaseActivity.height / 5);
+//        chat_bottom_image.setOnClickListener(this);
+//        chat_relat.setOnClickListener(this);
+//
+//        chat_adapter = new ChatBaseAdapter(context, objects);
+//        chat_listview.setAdapter(chat_adapter);
+//        chat_adapter.setLongClick(this);
+//        chat_adapter.setClick(this);
+//        chat_bottom_but.setOnClickListener(this);
+//        chat_adapter.setIconClick(this);
+//        chat_bottom_edit.addTextChangedListener(this);
+//        chat_bottom_edit.setOnClickListener(this);
+//        chat_bottom_edit.setOnKeyListener(this);
+//        base_top_image1.setOnClickListener(this);
+//
+//    }
 
+    @Override
+    public void inti() {
         object = getIntent().getParcelableExtra("data");
         user = getIntent().getParcelableExtra("user");
 
@@ -144,38 +178,6 @@ public class Chat extends BaseActivity implements View.OnLongClickListener, MyOn
 
 
         contentView.addView(view);
-    }
-
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
-    @Override
-    public void init() {
-
-        instance();
-
-        addItem();
-
-        setBackground(R.color.WhiteSmoke);
-        setTitle(object.getTitle());
-        TitleBarRight(false);
-        RightIcon(R.mipmap.more);
-
-        Nav(0);
-
-        DensityUtil.setHeight(chat_bottom_viewpager, BaseActivity.height / 5);
-        chat_bottom_image.setOnClickListener(this);
-        chat_relat.setOnClickListener(this);
-
-        chat_adapter = new ChatBaseAdapter(context, objects);
-        chat_listview.setAdapter(chat_adapter);
-        chat_adapter.setLongClick(this);
-        chat_adapter.setClick(this);
-        chat_bottom_but.setOnClickListener(this);
-        chat_adapter.setIconClick(this);
-        chat_bottom_edit.addTextChangedListener(this);
-        chat_bottom_edit.setOnClickListener(this);
-        chat_bottom_edit.setOnKeyListener(this);
-        base_top_image1.setOnClickListener(this);
-
     }
 
     @Override
@@ -215,7 +217,7 @@ public class Chat extends BaseActivity implements View.OnLongClickListener, MyOn
                 list.add(addPop("更换群主"));
                 list.add(addPop("更换群头像"));
                 popWindow = new MyPopWindow(activity, list, BaseActivity.width / 3);
-                popWindow.showPopupWindow(base_top_image1);
+//                popWindow.showPopupWindow(base_top_image1);
                 popWindow.PopItemClick(this);
                 break;
         }
@@ -236,7 +238,7 @@ public class Chat extends BaseActivity implements View.OnLongClickListener, MyOn
         list.add(new Chat_Botton_Fragment());
         list.add(new Chat_Botton_Fragment());
 
-        chat_bottom_viewpager.setAdapter(new MyViewPagerAdapter(getSupportFragmentManager(), list, false));
+//        chat_bottom_viewpager.setAdapter(new MyViewPagerAdapter(getSupportFragmentManager(), list, false));
     }
 
 

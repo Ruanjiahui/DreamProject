@@ -23,7 +23,7 @@ import com.example.administrator.dreamproject.R;
 import com.example.administrator.dreamproject.SQLite_Table;
 import com.example.administrator.ui_sdk.Applications;
 import com.example.administrator.ui_sdk.ListView_Object;
-import com.example.administrator.ui_sdk.Other.BaseActivity;
+import com.example.administrator.ui_sdk.MyBaseActivity.BaseActivity;
 import com.example.administrator.ui_sdk.Other.MyBaseAdapter;
 import com.example.administrator.ui_sdk.View.MyDialog;
 import com.example.administrator.websocket.WampConnection;
@@ -48,8 +48,55 @@ public class Setting extends BaseActivity implements AdapterView.OnItemClickList
     private Cursor cursor = null;
     private ServerData serverData = null;
 
+//    @Override
+//    public void setcontentView() {
+//
+//    }
+//
+//
+//    @Override
+//    public void init() {
+//        super.init();
+//
+////        databaseHelper = new DatabaseHelper(context, PATH.ihuo);
+//        loadState();
+////        cursor = SQLite_Table.TableVisiable(databaseHelper, PATH.serverinfo);
+////        if (cursor == null) {
+////            setting_unload.setText("登录");
+////        } else {
+////            serverData = SQLite_Table.dbServer(cursor);
+////            //如果表存在但是online状态为未登录也视为未登录状态
+////            if (serverData.getOnline() == 0)
+////                setting_unload.setText("登录");
+////            else
+////                setting_unload.setText("退出登录");
+////
+////        }
+//
+//        //设置标题
+//        setTitle("设置");
+//        //设置右边的文字不可见
+//        TitleBarRight(false);
+//        //隐藏导航条
+//        Nav(0);
+//        setBackground(R.color.WhiteSmoke);
+//
+//        addItem();
+//        adapter = new MyBaseAdapter(context, objects, 2);
+//        setting_listview.setAdapter(adapter);
+//        setting_listview.setOnItemClickListener(this);
+//        setting_unload.setOnClickListener(this);
+//
+//    }
+
     @Override
-    public void setcontentView() {
+    public void inti() {
+        setTopColor(R.color.blue);
+        setTopTitleColor(R.color.white);
+        setTitle("设置");
+        setLeftTitleColor(R.color.white);
+        setRightTitleVisiable(false);
+
         context = this;
         activity = (Activity) context;
 
@@ -58,42 +105,12 @@ public class Setting extends BaseActivity implements AdapterView.OnItemClickList
 
         setting_listview = (ListView) view.findViewById(R.id.setting_listview);
         setting_unload = (Button) view.findViewById(R.id.setting_unload);
-    }
-
-
-    @Override
-    public void init() {
-        super.init();
-
-//        databaseHelper = new DatabaseHelper(context, PATH.ihuo);
-        loadState();
-//        cursor = SQLite_Table.TableVisiable(databaseHelper, PATH.serverinfo);
-//        if (cursor == null) {
-//            setting_unload.setText("登录");
-//        } else {
-//            serverData = SQLite_Table.dbServer(cursor);
-//            //如果表存在但是online状态为未登录也视为未登录状态
-//            if (serverData.getOnline() == 0)
-//                setting_unload.setText("登录");
-//            else
-//                setting_unload.setText("退出登录");
-//
-//        }
-
-        //设置标题
-        setTitle("设置");
-        //设置右边的文字不可见
-        TitleBarRight(false);
-        //隐藏导航条
-        Nav(0);
-        setBackground(R.color.WhiteSmoke);
 
         addItem();
         adapter = new MyBaseAdapter(context, objects, 2);
         setting_listview.setAdapter(adapter);
         setting_listview.setOnItemClickListener(this);
         setting_unload.setOnClickListener(this);
-
     }
 
     @Override

@@ -174,24 +174,26 @@ public class MyBaseAdapter extends BaseAdapter {
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     private void HandlerData(ViewHolder viewHolder, ListView_Object list) {
-        if (maker == 3) {
-            viewHolder.item_linear1.setVisibility(View.VISIBLE);
-            viewHolder.item_linear2.setVisibility(View.GONE);
-
-            if (!list.getContent_center().equals("")) {
-                viewHolder.linear1_text.setText(list.getContent_center());
-            } else {
-                viewHolder.linear1_text.setVisibility(View.GONE);
-//                DensityUtil.setHeight(viewHolder.item_linear1, list.getResid_center1_height());
-//                viewHolder.item_linear1.setBackground(list.getResid_center1());
-            }
-            if (list.getResid_center() != null) {
-                viewHolder.linear1_image.setImageBitmap(list.getResid_center());
-                DensityUtil.setHeight(viewHolder.item_linear1, list.getResid_center_height());
-            } else {
-                viewHolder.linear1_image.setVisibility(View.GONE);
-            }
-        } else if (list.getPrompt()) {
+//        if (maker == 3) {
+//            viewHolder.item_linear2.setVisibility(View.GONE);
+//            viewHolder.item_linear1.setVisibility(View.VISIBLE);
+//
+//            if (!list.getContent_center().equals("")) {
+//                viewHolder.linear1_text.setText(list.getContent_center());
+//            } else {
+//                viewHolder.linear1_text.setVisibility(View.GONE);
+////                DensityUtil.setHeight(viewHolder.item_linear1, list.getResid_center1_height());
+////                viewHolder.item_linear1.setBackground(list.getResid_center1());
+//            }
+//            if (list.getResid_center() != null) {
+//                viewHolder.linear1_image.setVisibility(View.VISIBLE);
+//                viewHolder.linear1_image.setImageBitmap(list.getResid_center());
+//                DensityUtil.setHeight(viewHolder.item_linear1, list.getResid_center_height());
+//            } else {
+//                viewHolder.linear1_image.setVisibility(View.GONE);
+//            }
+//        } else
+        if (list.getPrompt()) {
             viewHolder.item_linear2.setVisibility(View.GONE);
             viewHolder.item_linear3.setVisibility(View.VISIBLE);
             viewHolder.item_interval_title.setText(list.getPromptContent());
@@ -228,6 +230,11 @@ public class MyBaseAdapter extends BaseAdapter {
             if (list.getItem_height() != 0) {
                 DensityUtil.setItemHeight(viewHolder.listview_item_linear, list.getItem_height());
             }
+
+            if (list.getResidHeight() != 0){
+                DensityUtil.setLinearSize(viewHolder.item_icon, list.getResidHeight(), list.getResidHeight());
+            }
+
             //判断该item是否能点击
             if (!list.getClick()) {
                 viewHolder.listview_item_linear.setBackgroundResource(R.color.White);

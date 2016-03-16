@@ -3,7 +3,7 @@
     android:id="@+id/nav_main"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/White">
+    android:orientation="horizontal">
 
     <!--<View-->
     <!--android:layout_width="fill_parent"-->
@@ -28,8 +28,7 @@
                 android:id="@+id/nav_1_image"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:gravity="center"
-                android:src="@mipmap/house" />
+                android:gravity="center" />
 
             <TextView
                 android:id="@+id/nav_1_text"
@@ -37,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/nav"
-                android:textColor="@color/Blue"
+
                 android:textSize="12sp" />
         </LinearLayout>
 
@@ -75,8 +74,7 @@
                 android:id="@+id/nav_2_image"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:gravity="center"
-                android:src="@mipmap/shopping_up" />
+                android:gravity="center" />
 
             <TextView
                 android:id="@+id/nav_2_text"
@@ -84,12 +82,11 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/nav"
-                android:textColor="@color/Grey"
                 android:textSize="12sp" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/nav_origin1_linear2"
+            android:id="@+id/nav_origin2_linear2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/nav_2"
@@ -122,8 +119,7 @@
                 android:id="@+id/nav_3_image"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:gravity="center"
-                android:src="@mipmap/speech_up" />
+                android:gravity="center" />
 
             <TextView
                 android:id="@+id/nav_3_text"
@@ -131,12 +127,11 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/nav"
-                android:textColor="@color/Grey"
                 android:textSize="12sp" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/nav_origin1_linear3"
+            android:id="@+id/nav_origin3_linear3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/nav_3"
@@ -170,8 +165,7 @@
                 android:id="@+id/nav_4_image"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:gravity="center"
-                android:src="@mipmap/basket_up" />
+                android:gravity="center" />
 
             <TextView
                 android:id="@+id/nav_4_text"
@@ -179,12 +173,11 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/nav"
-                android:textColor="@color/Grey"
                 android:textSize="12sp" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/nav_origin1_linear4"
+            android:id="@+id/nav_origin4_linear4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/nav_4"

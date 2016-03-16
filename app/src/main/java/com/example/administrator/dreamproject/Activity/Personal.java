@@ -42,7 +42,6 @@ import com.example.administrator.http_sdk.HttpInterface;
 import com.example.administrator.ui_sdk.Applications;
 import com.example.administrator.ui_sdk.DensityUtil;
 import com.example.administrator.ui_sdk.ListView_Object;
-import com.example.administrator.ui_sdk.Other.BaseActivity;
 import com.example.administrator.ui_sdk.View.MyDialog;
 import com.example.administrator.ui_sdk.View.SystemManager;
 
@@ -128,9 +127,9 @@ public class Personal extends FragmentActivity implements View.OnClickListener, 
         personal_scroll.smoothScrollTo(0, 20);
         //判断是否将状态栏设置透明
         SystemManager.setTitleBarColor(android.R.color.transparent, this);
-        DensityUtil.setHeight(personal_top, BaseActivity.height / 8 * 3);
-        DensityUtil.setHeight(personallieanr, BaseActivity.height / 15);
-        DensityUtil.setRelHeight(personallinear1, BaseActivity.height / 15);
+//        DensityUtil.setHeight(personal_top, BaseActivity.height / 8 * 3);
+//        DensityUtil.setHeight(personallieanr, BaseActivity.height / 15);
+//        DensityUtil.setRelHeight(personallinear1, BaseActivity.height / 15);
 
 
         personal_text.setOnClickListener(this);
@@ -232,7 +231,7 @@ public class Personal extends FragmentActivity implements View.OnClickListener, 
                     list.add(additem("投诉", DensityUtil.dip2px(context, 50)));
                     MyDialog myDialog = new MyDialog(context, R.style.mydialog);
                     myDialog.setHeight(DensityUtil.dip2px(context, 60) * 2);
-                    myDialog.setWidth(BaseActivity.width / 3 * 2);
+//                    myDialog.setWidth(BaseActivity.width / 3 * 2);
                     myDialog.DialogState("", list, 0, "", "");
                     myDialog.show();
                 }

@@ -24,7 +24,6 @@ import com.example.administrator.dreamproject.R;
 import com.example.administrator.http_sdk.HTTP;
 import com.example.administrator.http_sdk.HttpInterface;
 import com.example.administrator.ui_sdk.ListView_Object;
-import com.example.administrator.ui_sdk.Other.BaseActivity;
 import com.example.administrator.ui_sdk.Other.MyBaseAdapter;
 
 import java.io.File;
@@ -90,7 +89,7 @@ public class PersonalFragment3 extends Fragment implements AdapterView.OnItemCli
     private ListView_Object addItem(Bitmap bitmap) {
         ListView_Object listView_object = new ListView_Object();
         listView_object.setResid_center(bitmap);
-        listView_object.setResid_center_height(BaseActivity.width / 3);
+//        listView_object.setResid_center_height(BaseActivity.width / 3);
 
         return listView_object;
     }

@@ -24,7 +24,7 @@ import com.example.administrator.dreamproject.PATH;
 import com.example.administrator.dreamproject.R;
 import com.example.administrator.dreamproject.SQLite_Table;
 import com.example.administrator.ui_sdk.Applications;
-import com.example.administrator.ui_sdk.Other.BaseActivity;
+import com.example.administrator.ui_sdk.MyBaseActivity.BaseActivity;
 import com.example.administrator.websocket.Wamp;
 
 import java.util.Timer;
@@ -49,17 +49,42 @@ public class Register extends BaseActivity implements TextWatcher {
     private int PHONE = 0;
     private String newpassword = "";
     private String oldpassword = "";
-//    private Wamp mConnection = null;
+    //    private Wamp mConnection = null;
     private ContentValues contentValues = null;
     private String phone = "";
 
     @Override
+    public void inti() {
+        setTitle("注册");
+        setTopColor(R.color.blue);
+        setRightTitleColor(R.color.white);
+        setLeftTitleColor(R.color.white);
+        setTopTitleColor(R.color.White);
+        setRightTitle("下一步");
+
+        context = this;
+        activity = (Activity) context;
+
+        view = LayoutInflater.from(context).inflate(R.layout.register, null);
+        register_edit = (EditText) view.findViewById(R.id.register_edit);
+        register_but = (Button) view.findViewById(R.id.register_but);
+        register_edit1 = (EditText) view.findViewById(R.id.register_edit1);
+        register_linear = (LinearLayout) view.findViewById(R.id.register_linear);
+
+        setContent(view);
+
+        register_edit.addTextChangedListener(this);
+        register_but.setOnClickListener(this);
+    }
+
+    @Override
     public void Click(View view) {
         switch (view.getId()) {
-            case R.id.base_top_relative:
-                finish();
-                break;
             case R.id.register_but:
+                if (Judge.Space(register_edit.getText().toString()) && PHONE == 0){
+                    SystemInfo.showToast(context, "手机号码不能为空");
+                    break;
+                }
                 PHONE = 1;
                 phone = register_edit.getText().toString();
                 register_edit.setText("");
@@ -179,31 +204,6 @@ public class Register extends BaseActivity implements TextWatcher {
 
                 break;
         }
-    }
-
-    @Override
-    public void setcontentView() {
-        context = this;
-        activity = (Activity) context;
-
-        view = LayoutInflater.from(context).inflate(R.layout.register, null);
-        register_edit = (EditText) view.findViewById(R.id.register_edit);
-        register_but = (Button) view.findViewById(R.id.register_but);
-        register_edit1 = (EditText) view.findViewById(R.id.register_edit1);
-        register_linear = (LinearLayout) view.findViewById(R.id.register_linear);
-
-        contentView.addView(view);
-
-        register_edit.addTextChangedListener(this);
-        register_but.setOnClickListener(this);
-    }
-
-    @Override
-    public void init() {
-        setTitle("注册");
-        setTitleRight("下一步");
-        setBackground(R.color.WhiteSmoke);
-        Nav(0);
     }
 
     @Override

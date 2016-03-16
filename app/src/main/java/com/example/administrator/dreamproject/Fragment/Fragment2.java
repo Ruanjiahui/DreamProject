@@ -17,7 +17,7 @@ import com.example.administrator.data_sdk.Transformation;
 import com.example.administrator.dreamproject.R;
 import com.example.administrator.ui_sdk.DensityUtil;
 import com.example.administrator.ui_sdk.ListView_Object;
-import com.example.administrator.ui_sdk.Other.BaseActivity;
+import com.example.administrator.ui_sdk.MyBaseActivity.BaseActivity;
 import com.example.administrator.ui_sdk.Other.MyBaseAdapter;
 import com.example.administrator.ui_sdk.View.SystemManager;
 
@@ -62,7 +62,7 @@ public class Fragment2 extends Fragment {
         fragment2_listview.setAdapter(adapter);
 
         //设置沉寂式状态栏
-        SystemManager.ViewColor(fragment2_top, getActivity());
+        SystemManager.setWindowColor(fragment2_top, getActivity());
         return view;
     }
 

@@ -17,7 +17,7 @@ import com.example.administrator.data_sdk.User;
 import com.example.administrator.dreamproject.Identification;
 import com.example.administrator.dreamproject.R;
 import com.example.administrator.ui_sdk.ListView_Object;
-import com.example.administrator.ui_sdk.Other.BaseActivity;
+import com.example.administrator.ui_sdk.MyBaseActivity.BaseActivity;
 import com.example.administrator.ui_sdk.Other.MyBaseAdapter;
 
 import java.util.ArrayList;
@@ -56,8 +56,29 @@ public class People extends BaseActivity implements AdapterView.OnItemClickListe
 
     private EditText people_edit = null;
 
+//    @Override
+//    public void setcontentView() {
+//
+//    }
+//
+//    @Override
+//    public void init() {
+//
+//        addItem();
+//        TitleBarRight(false);
+//        setTitle(data.getTitle());
+//        setBackground(R.color.WhiteSmoke);
+//        Nav(0);
+//
+//        adapter = new MyBaseAdapter(context, objects, 0);
+//        people_listview.setAdapter(adapter);
+//        people_listview.setOnItemClickListener(this);
+//        people_edit.setOnClickListener(this);
+//
+//    }
+
     @Override
-    public void setcontentView() {
+    public void inti() {
         context = this;
         activity = (Activity) context;
 
@@ -70,22 +91,6 @@ public class People extends BaseActivity implements AdapterView.OnItemClickListe
         people_edit = (EditText) view.findViewById(R.id.people_edit);
 
         contentView.addView(view);
-    }
-
-    @Override
-    public void init() {
-
-        addItem();
-        TitleBarRight(false);
-        setTitle(data.getTitle());
-        setBackground(R.color.WhiteSmoke);
-        Nav(0);
-
-        adapter = new MyBaseAdapter(context, objects, 0);
-        people_listview.setAdapter(adapter);
-        people_listview.setOnItemClickListener(this);
-        people_edit.setOnClickListener(this);
-
     }
 
     @Override

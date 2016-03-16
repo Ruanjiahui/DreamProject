@@ -5,11 +5,13 @@
     <color name="White">#FFFFFF</color>
     <color name="WhiteSmoke">#F5F5F5</color>
     <color name="Blue">#28beff</color>
-    <color name="Blue_Black">#1c69ee</color>
+    <color name="Blue_Tra">#88000000</color>
+    <color name="Blue_Black">#111a52</color>
     <color name="Blue_Blackest">#1cb3ee</color>
     <color name="Red">#FF0000</color>
     <color name="Black">#000000</color>
     <color name="background_dark">#000000</color>
     <color name="legacy_primary_dark">#000000</color>
     <color name="legacy_primary">#e6e6e6</color>
+    <color name="GreyDeep">#999999</color>
 </resources>

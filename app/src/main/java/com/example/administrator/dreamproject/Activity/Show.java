@@ -11,11 +11,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.administrator.data_sdk.AcitivityData;
-import com.example.administrator.data_sdk.Transformation;
 import com.example.administrator.dreamproject.CommenData;
-import com.example.administrator.dreamproject.Identification;
 import com.example.administrator.dreamproject.R;
-import com.example.administrator.ui_sdk.Other.BaseActivity;
+import com.example.administrator.ui_sdk.MyBaseActivity.BaseActivity;
 
 /**
  * Created by Administrator on 2016/2/17.
@@ -32,10 +30,48 @@ public class Show extends BaseActivity {
     private TextView show_group_private = null;
     private TextView show_group_public = null;
 
-    @Override
-    public void setcontentView() {
-        super.setcontentView();
+//    @Override
+//    public void setcontentView() {
+//        super.setcontentView();
+//
+//
+//
+//    }
+//
+//    @Override
+//    public void init() {
+//        super.init();
+//
+//        setTitleRight("删除");
+//        setTitle("");
+//
+//        if (acitivityData.getIdentification() == Identification.look_picture) {
+//            show_image.setVisibility(View.VISIBLE);
+//            if (acitivityData.getID() != 0) {
+//                show_image.setImageBitmap(Transformation.Path2Bitmap(CommenData.arrayList.get(acitivityData.getID())));
+//            }
+//        } else if (acitivityData.getIdentification() == Identification.person_picture) {
+//            show_image.setVisibility(View.VISIBLE);
+//            show_image.setImageBitmap(Transformation.Path2Bitmap(CommenData.arrayList.get(acitivityData.getID())));
+//        } else if (acitivityData.getIdentification() == Identification.Follow) {
+//            show_edit.setVisibility(View.VISIBLE);
+//            show_edit.setHint(R.string.people_hint);
+//            //隐藏右边的文字
+//            TitleBarRight(false);
+//            setTitle("搜索");
+//        } else if (acitivityData.getIdentification() == Identification.group) {
+//            show_linear1.setVisibility(View.VISIBLE);
+//            TitleBarRight(false);
+//            show_group_private.setOnClickListener(this);
+//            show_group_public.setOnClickListener(this);
+//            setTitle("创建群");
+//        }
+//        setBackground(R.color.WhiteSmoke);
+//        Nav(0);
+//    }
 
+    @Override
+    public void inti() {
         context = this;
         activity = (Activity) context;
 
@@ -49,39 +85,6 @@ public class Show extends BaseActivity {
         show_group_public = (TextView) view.findViewById(R.id.show_group_public);
 
         contentView.addView(view);
-
-    }
-
-    @Override
-    public void init() {
-        super.init();
-
-        setTitleRight("删除");
-        setTitle("");
-
-        if (acitivityData.getIdentification() == Identification.look_picture) {
-            show_image.setVisibility(View.VISIBLE);
-            if (acitivityData.getID() != 0) {
-                show_image.setImageBitmap(Transformation.Path2Bitmap(CommenData.arrayList.get(acitivityData.getID())));
-            }
-        } else if (acitivityData.getIdentification() == Identification.person_picture) {
-            show_image.setVisibility(View.VISIBLE);
-            show_image.setImageBitmap(Transformation.Path2Bitmap(CommenData.arrayList.get(acitivityData.getID())));
-        } else if (acitivityData.getIdentification() == Identification.Follow) {
-            show_edit.setVisibility(View.VISIBLE);
-            show_edit.setHint(R.string.people_hint);
-            //隐藏右边的文字
-            TitleBarRight(false);
-            setTitle("搜索");
-        } else if (acitivityData.getIdentification() == Identification.group) {
-            show_linear1.setVisibility(View.VISIBLE);
-            TitleBarRight(false);
-            show_group_private.setOnClickListener(this);
-            show_group_public.setOnClickListener(this);
-            setTitle("创建群");
-        }
-        setBackground(R.color.WhiteSmoke);
-        Nav(0);
     }
 
     @Override

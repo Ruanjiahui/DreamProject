@@ -24,7 +24,7 @@ import com.example.administrator.dreamproject.SystemImage;
 import com.example.administrator.http_sdk.HTTP;
 import com.example.administrator.http_sdk.HttpInterface.HttpHandler;
 import com.example.administrator.ui_sdk.ListView_Object;
-import com.example.administrator.ui_sdk.Other.BaseActivity;
+import com.example.administrator.ui_sdk.MyBaseActivity.BaseActivity;
 import com.example.administrator.ui_sdk.Other.MyBaseAdapter;
 
 import java.util.ArrayList;
@@ -48,8 +48,24 @@ public class Release extends BaseActivity implements HttpHandler, AdapterView.On
     private int DELETE = 1; //删除
     private int tmp = 0;    //记录点击图片的标识
 
+//    @Override
+//    public void setcontentView() {
+//
+//    }
+//
+//    @Override
+//    public void init() {
+//        super.init();
+//
+//        Nav(0);
+//        setTitle("发表");
+//        setTitleRight("提交");
+//        setBackground(R.color.WhiteSmoke);
+//
+//    }
+
     @Override
-    public void setcontentView() {
+    public void inti() {
         context = this;
         activity = (Activity) context;
 
@@ -84,17 +100,6 @@ public class Release extends BaseActivity implements HttpHandler, AdapterView.On
 
             release_gridview.setOnItemClickListener(this);
         }
-    }
-
-    @Override
-    public void init() {
-        super.init();
-
-        Nav(0);
-        setTitle("发表");
-        setTitleRight("提交");
-        setBackground(R.color.WhiteSmoke);
-
     }
 
     @Override

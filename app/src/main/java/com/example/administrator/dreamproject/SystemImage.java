@@ -14,7 +14,7 @@ import android.widget.GridView;
 import com.example.administrator.data_sdk.SystemData;
 import com.example.administrator.data_sdk.Transformation;
 import com.example.administrator.ui_sdk.ListView_Object;
-import com.example.administrator.ui_sdk.Other.BaseActivity;
+import com.example.administrator.ui_sdk.MyBaseActivity.BaseActivity;
 import com.example.administrator.ui_sdk.Other.MyBaseAdapter;
 
 import java.util.ArrayList;
@@ -36,12 +36,32 @@ public class SystemImage extends BaseActivity implements AdapterView.OnItemClick
     private List<HashMap<String, String>> list = null;
     private MyBaseAdapter adapter = null;
 
-    @Override
-    public void setcontentView() {
 
+//    @Override
+//    public void init() {
+//
+//        arrayList.add(addItem(Transformation.Resource2Bitmap(activity, R.mipmap.camera)));
+//        for (int i = 0; i < list.size(); i++) {
+//            arrayList.add(addItem(Transformation.Resource2Bitmap(activity, R.mipmap.ic_launcher)));
+//        }
+//
+//        new Thread(new Run()).start();
+//
+//        setTitle("图片");
+//        Nav(0);
+//        setBackground(R.color.WhiteSmoke);
+//
+//        adapter = new MyBaseAdapter(context, arrayList, 3);
+//        systemimage_gridview.setAdapter(adapter);
+//
+//        systemimage_gridview.setOnItemClickListener(this);
+//
+//    }
+
+    @Override
+    public void inti() {
         context = this;
         activity = (Activity) context;
-        super.setcontentView();
 
         view = LayoutInflater.from(context).inflate(R.layout.systemimage, null);
 
@@ -52,27 +72,6 @@ public class SystemImage extends BaseActivity implements AdapterView.OnItemClick
         arrayList = new ArrayList<>();
         list = SystemData.LocalImage(context);
 //        Release.list = list;
-    }
-
-    @Override
-    public void init() {
-
-        arrayList.add(addItem(Transformation.Resource2Bitmap(activity, R.mipmap.camera)));
-        for (int i = 0; i < list.size(); i++) {
-            arrayList.add(addItem(Transformation.Resource2Bitmap(activity, R.mipmap.ic_launcher)));
-        }
-
-        new Thread(new Run()).start();
-
-        setTitle("图片");
-        Nav(0);
-        setBackground(R.color.WhiteSmoke);
-
-        adapter = new MyBaseAdapter(context, arrayList, 3);
-        systemimage_gridview.setAdapter(adapter);
-
-        systemimage_gridview.setOnItemClickListener(this);
-
     }
 
     @Override

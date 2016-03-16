@@ -16,7 +16,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-import com.example.administrator.data_sdk.AcitivityData;
 import com.example.administrator.data_sdk.Common;
 import com.example.administrator.data_sdk.FileUtil.FileWrite;
 import com.example.administrator.data_sdk.SystemInfo;
@@ -34,7 +33,7 @@ import com.example.administrator.http_sdk.HTTP;
 import com.example.administrator.http_sdk.HttpInterface;
 import com.example.administrator.http_sdk.HttpInterface.HttpHandler;
 import com.example.administrator.ui_sdk.Applications;
-import com.example.administrator.ui_sdk.Other.BaseActivity;
+import com.example.administrator.ui_sdk.MyBaseActivity.BaseActivity;
 import com.example.administrator.websocket.Wamp;
 
 /**
@@ -50,7 +49,6 @@ public class Load extends BaseActivity implements View.OnFocusChangeListener, Te
     private ImageView load_image, load_image1 = null;
     private Button load_but1 = null;
     private Button load_but = null;
-    private AcitivityData acitivityData = null;
 
     private static ContentValues contentValues = null;
     private static String user = null;
@@ -60,13 +58,19 @@ public class Load extends BaseActivity implements View.OnFocusChangeListener, Te
 
 
     @Override
-    public void setcontentView() {
+    public void inti() {
+        setRightTitleVisiable(false);
+        setTitle("登录");
+        setTopTitleColor(R.color.white);
+        setLeftTitleColor(R.color.white);
+        setTopColor(R.color.blue);
+
         context = this;
         activity = (Activity) context;
 
         httpHandler = this;
 
-        view = LayoutInflater.from(context).inflate(R.layout.load, null);
+        view = LayoutInflater.from(this).inflate(R.layout.load, null);
 
         load_edit1 = (EditText) view.findViewById(R.id.load_edit1);
         load_edit2 = (EditText) view.findViewById(R.id.load_edit2);
@@ -75,8 +79,6 @@ public class Load extends BaseActivity implements View.OnFocusChangeListener, Te
         load_but = (Button) view.findViewById(R.id.load_but);
         load_but1 = (Button) view.findViewById(R.id.load_but1);
 
-        contentView.addView(view);
-
         load_edit1.setOnFocusChangeListener(this);
         load_edit2.setOnFocusChangeListener(this);
         load_edit1.addTextChangedListener(this);
@@ -84,26 +86,15 @@ public class Load extends BaseActivity implements View.OnFocusChangeListener, Te
         load_but1.setOnClickListener(this);
         load_but.setOnClickListener(this);
 
-    }
+//        load_but1.setClickable(true);
+//        load_but1.setEnabled(true);
 
-    @Override
-    public void init() {
-        TitleBarRight(false);
-        setTitle("登录");
-        setBackground(R.color.WhiteSmoke);
-        Nav(0);
+        setContent(view);
     }
-
-//    private Wamp mConnection = null;
 
     @Override
     public void Click(View view) {
         switch (view.getId()) {
-            case R.id.base_top_relative:
-                //销毁activity
-                finish();
-//                Back(activity);
-                break;
             case R.id.load_but1:
                 Common.IntentActivity(context, Register.class);//, "ws://10.0.3.2:8080/WebSocket/Main/@", Identification.Resgister));
                 break;
@@ -193,7 +184,7 @@ public class Load extends BaseActivity implements View.OnFocusChangeListener, Te
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
-            SystemInfo.Closekeyboard(activity);
+//            SystemInfo.Closekeyboard(activity);
         }
         return super.onTouchEvent(event);
     }

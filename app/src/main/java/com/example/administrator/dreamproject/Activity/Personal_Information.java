@@ -33,8 +33,8 @@ import com.example.administrator.http_sdk.HTTP;
 import com.example.administrator.http_sdk.HttpInterface;
 import com.example.administrator.ui_sdk.DensityUtil;
 import com.example.administrator.ui_sdk.ListView_Object;
+import com.example.administrator.ui_sdk.MyBaseActivity.BaseActivity;
 import com.example.administrator.ui_sdk.MyOnClickInterface;
-import com.example.administrator.ui_sdk.Other.BaseActivity;
 import com.example.administrator.ui_sdk.Other.MyBaseAdapter;
 import com.example.administrator.ui_sdk.View.MyDialog;
 
@@ -70,34 +70,25 @@ public class Personal_Information extends BaseActivity implements AdapterView.On
 //    private Cursor cursor = null;
 
 
-    @Override
-    public void setcontentView() {
-
-        user = getIntent().getParcelableExtra("data");
-
-
-        context = this;
-        activity = (Activity) context;
-        view = LayoutInflater.from(context).inflate(R.layout.personal_information_main, null);
-
-        personal_information_listview = (ListView) view.findViewById(R.id.personal_information_listview);
-
-        contentView.addView(view);
-    }
-
-    @Override
-    public void init() {
-        additem();
-
-        //设置标题
-        setTitle("个人信息");
-        setTitleRight("上传");
-        Nav(0);
-        adapter = new MyBaseAdapter(context, list, 1);
-        personal_information_listview.setAdapter(adapter);
-
-        personal_information_listview.setOnItemClickListener(this);
-    }
+//    @Override
+//    public void setcontentView() {
+//
+//
+//    }
+//
+//    @Override
+//    public void init() {
+//        additem();
+//
+//        //设置标题
+//        setTitle("个人信息");
+//        setTitleRight("上传");
+//        Nav(0);
+//        adapter = new MyBaseAdapter(context, list, 1);
+//        personal_information_listview.setAdapter(adapter);
+//
+//        personal_information_listview.setOnItemClickListener(this);
+//    }
 
     /**
      * 添加item子项
@@ -203,6 +194,20 @@ public class Personal_Information extends BaseActivity implements AdapterView.On
                 Common.IntentActivity(activity, Other.class, data, Identification.Password);
                 break;
         }
+    }
+
+    @Override
+    public void inti() {
+        user = getIntent().getParcelableExtra("data");
+
+
+        context = this;
+        activity = (Activity) context;
+        view = LayoutInflater.from(context).inflate(R.layout.personal_information_main, null);
+
+        personal_information_listview = (ListView) view.findViewById(R.id.personal_information_listview);
+
+        contentView.addView(view);
     }
 
     @Override

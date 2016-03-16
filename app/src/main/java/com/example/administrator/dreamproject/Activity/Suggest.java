@@ -6,7 +6,7 @@ import android.view.View;
 
 import com.example.administrator.data_sdk.AcitivityData;
 import com.example.administrator.dreamproject.R;
-import com.example.administrator.ui_sdk.Other.BaseActivity;
+import com.example.administrator.ui_sdk.MyBaseActivity.BaseActivity;
 
 /**
  * Created by Administrator on 2016/1/14.
@@ -17,21 +17,26 @@ public class Suggest extends BaseActivity {
     private View view = null;
     private AcitivityData object = null;
 
+//    @Override
+//    public void setcontentView() {
+//
+//    }
+//
+//    @Override
+//    public void init() {
+//        setTitleRight("发送");
+//        setTitle(object.getTitle());
+//        setBackground(R.color.WhiteSmoke);
+//        Nav(0);
+//    }
+
     @Override
-    public void setcontentView() {
+    public void inti() {
         context = this;
         object = getIntent().getParcelableExtra("data");
         view = LayoutInflater.from(context).inflate(R.layout.suggest, null);
 
         contentView.addView(view);
-    }
-
-    @Override
-    public void init() {
-        setTitleRight("发送");
-        setTitle(object.getTitle());
-        setBackground(R.color.WhiteSmoke);
-        Nav(0);
     }
 
     @Override

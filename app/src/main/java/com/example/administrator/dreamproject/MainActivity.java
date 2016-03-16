@@ -16,7 +16,6 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.RelativeLayout;
 
 import com.example.administrator.data_sdk.AcitivityData;
 import com.example.administrator.data_sdk.Common;
@@ -35,19 +34,13 @@ import com.example.administrator.dreamproject.Fragment.Fragment3;
 import com.example.administrator.dreamproject.Fragment.Fragment4;
 import com.example.administrator.http_sdk.HTTP;
 import com.example.administrator.http_sdk.HttpInterface;
-import com.example.administrator.ui_sdk.CreateDialog;
-import com.example.administrator.ui_sdk.DensityUtil;
-import com.example.administrator.ui_sdk.ListView_Object;
+import com.example.administrator.ui_sdk.Applications;
+import com.example.administrator.ui_sdk.MyBaseActivity.NavActivity;
 import com.example.administrator.ui_sdk.MyOnClickInterface;
-import com.example.administrator.ui_sdk.Other.BaseActivity;
 import com.example.administrator.ui_sdk.View.MyDialog;
 import com.example.administrator.websocket.Wamp;
 
-import java.util.ArrayList;
-
-public class MainActivity extends BaseActivity implements MyOnClickInterface.ItemClick, HttpInterface.HttpHandler {
-
-    private RelativeLayout nav1, nav2, nav3, nav4 = null;
+public class MainActivity extends NavActivity implements MyOnClickInterface.ItemClick, HttpInterface.HttpHandler {
 
     //Fragment适配器
     private User user = null;
@@ -68,13 +61,50 @@ public class MainActivity extends BaseActivity implements MyOnClickInterface.Ite
 
     public static HttpInterface.HttpHandler httpHandler = null;
 
-    /**
-     * 重写setcontentView方法可以实现添加布局文件
-     */
     @Override
-    public void setcontentView() {
-        contentView.addView(LayoutInflater.from(this).inflate(
+    public void setNavClick(View v) {
+
+    }
+
+    @Override
+    public void setNav1Click() {
+        super.setNav1Click();
+        intentFragment(fragment1);
+    }
+
+    @Override
+    public void setNav2Click() {
+        super.setNav2Click();
+        intentFragment(fragment2);
+    }
+
+    @Override
+    public void setNav3Click() {
+        super.setNav3Click();
+        intentFragment(fragment3);
+    }
+
+    @Override
+    public void setNav4Click() {
+        super.setNav4Click();
+        intentFragment(fragment4);
+    }
+
+    @Override
+    public void Nav() {
+        //去掉标题栏
+        setNavTitle(0);
+
+        setNav1("首页");
+        setNav2("产品");
+        setNav3("聊天");
+        setNav4("商场");
+
+        //给导航上面添加内容
+        setNavContent(LayoutInflater.from(this).inflate(
                 R.layout.activity_main, null));
+
+
 
         context = MainActivity.this;
         activity = (Activity) context;
@@ -158,112 +188,6 @@ public class MainActivity extends BaseActivity implements MyOnClickInterface.Ite
         PATH.user = user;
         //默认跳转到第一个页面
         intentFragment(fragment1);
-
-    }
-
-    /**
-     * 重写inti可以实现初始化
-     */
-    @Override
-    public void init() {
-        // 获取组件ID
-        id();
-
-        // 组件的点击事件
-        nav1.setOnClickListener(this);
-        nav2.setOnClickListener(this);
-        nav3.setOnClickListener(this);
-        nav4.setOnClickListener(this);
-
-
-        // 设置标题是否显示0默认不显示
-        Title(0);
-        //设置背景颜色
-        setBackground(R.color.WhiteSmoke);
-        //设置发表按钮可见
-        setVisiableAdd(true);
-
-        setNav1("首页");
-        setNav2("产品");
-        setNav3("聊天");
-        setNav4("商场");
-    }
-
-    /**
-     * 获取组件ID
-     */
-    private void id() {
-        nav1 = (RelativeLayout) findViewById(R.id.nav1);
-        nav2 = (RelativeLayout) findViewById(R.id.nav2);
-        nav3 = (RelativeLayout) findViewById(R.id.nav3);
-        nav4 = (RelativeLayout) findViewById(R.id.nav4);
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.nav1:
-                intentFragment(fragment1);
-                setNav1Image(R.mipmap.house);
-                setNav1TextColor(0xff28beff);
-                setNav2Image(R.mipmap.shopping_up);
-                setNav2TextColor(R.color.Grey);
-                setNav3Image(R.mipmap.speech_up);
-                setNav3TextColor(R.color.Grey);
-                setNav4Image(R.mipmap.basket_up);
-                setNav4TextColor(R.color.Grey);
-                break;
-            case R.id.nav2:
-                intentFragment(fragment2);
-                setNav2Image(R.mipmap.shopping);
-                setNav2TextColor(0xff28beff);
-                setNav1Image(R.mipmap.house_up);
-                setNav1TextColor(R.color.Grey);
-                setNav3Image(R.mipmap.speech_up);
-                setNav3TextColor(R.color.Grey);
-                setNav4Image(R.mipmap.basket_up);
-                setNav4TextColor(R.color.Grey);
-                break;
-            case R.id.nav3:
-                intentFragment(fragment3);
-                setNav3Image(R.mipmap.speech);
-                setNav3TextColor(0xff28beff);
-                setNav2Image(R.mipmap.shopping_up);
-                setNav2TextColor(R.color.Grey);
-                setNav1Image(R.mipmap.house_up);
-                setNav1TextColor(R.color.Grey);
-                setNav4Image(R.mipmap.basket_up);
-                setNav4TextColor(R.color.Grey);
-                break;
-            case R.id.nav4:
-                intentFragment(fragment4);
-                setNav4Image(R.mipmap.basket);
-                setNav4TextColor(0xff28beff);
-                setNav2Image(R.mipmap.shopping_up);
-                setNav2TextColor(R.color.Grey);
-                setNav3Image(R.mipmap.speech_up);
-                setNav3TextColor(R.color.Grey);
-                setNav1Image(R.mipmap.house_up);
-                setNav1TextColor(R.color.Grey);
-                break;
-            case R.id.base_image_add:
-                ArrayList<ListView_Object> list = new ArrayList<>();
-                list.add(addItem("发表文字"));
-                list.add(addItem("发表图片"));
-                dialog = CreateDialog.ListViewDialog(context, list, CreateDialog.dialog_height, 2);
-                dialog.setOnItemClick(this);
-                dialog.show();
-                break;
-
-        }
-    }
-
-    private ListView_Object addItem(String content) {
-        CreateDialog.dialog_height = DensityUtil.dip2px(context, 50);
-        ListView_Object listView_object = new ListView_Object();
-        listView_object.setContent(content);
-        listView_object.setItem_height(CreateDialog.dialog_height);
-        return listView_object;
     }
 
     /**
@@ -344,8 +268,6 @@ public class MainActivity extends BaseActivity implements MyOnClickInterface.Ite
                 endtime = System.currentTimeMillis();
             } else {
                 finish();
-                //销毁全部的Activity
-                Destory();
             }
         }
         return false;
@@ -440,10 +362,10 @@ public class MainActivity extends BaseActivity implements MyOnClickInterface.Ite
         if (SQLite_Table.TableDataVisiable(context, PATH.ihuo, PATH.msg) != 0) {
             Cursor cursor = SQLite_Table.queryData(context, PATH.ihuo, PATH.msg, new String[]{"count(*)"}, "read = ?", new String[]{"0"}, "", "", "", "");
             if (cursor.moveToNext()) {
-                setNavOrigin3(Integer.parseInt(cursor.getString(0)));
+//                setNavOrigin3(Integer.parseInt(cursor.getString(0)));
             }
         } else {
-            setNavOrigin3(0);
+//            setNavOrigin3(0);
         }
         super.onStart();
     }
@@ -459,7 +381,7 @@ public class MainActivity extends BaseActivity implements MyOnClickInterface.Ite
         if (SQLite_Table.TableDataVisiable(context, PATH.ihuo, PATH.msg) != 0) {
             Cursor cursor = SQLite_Table.queryData(context, PATH.ihuo, PATH.msg, new String[]{"count(*)"}, "read = ?", new String[]{"0"}, "", "", "", "");
             if (cursor.moveToNext()) {
-                setNavOrigin3(Integer.parseInt(cursor.getString(0)));
+//                setNavOrigin3(Integer.parseInt(cursor.getString(0)));
             }
 
             if ("Fragment3".equals(PATH.acString)) {
@@ -483,6 +405,13 @@ public class MainActivity extends BaseActivity implements MyOnClickInterface.Ite
             user.setLogo(bitmap);
             intentFragment(new Fragment1());
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        Applications.getInstance().onTerminate();
     }
 }
 

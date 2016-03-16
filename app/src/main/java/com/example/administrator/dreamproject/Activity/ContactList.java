@@ -6,7 +6,7 @@ import android.view.View;
 
 import com.example.administrator.data_sdk.AcitivityData;
 import com.example.administrator.dreamproject.R;
-import com.example.administrator.ui_sdk.Other.BaseActivity;
+import com.example.administrator.ui_sdk.MyBaseActivity.BaseActivity;
 
 /**
  * Created by Administrator on 2016/1/14.
@@ -18,20 +18,25 @@ public class ContactList extends BaseActivity {
 
     private Context context = null;
 
+//    @Override
+//    public void setcontentView() {
+//
+//    }
+//
+//    @Override
+//    public void init() {
+//
+//        setTitle(object.getTitle());
+//        Nav(0);
+//    }
+
     @Override
-    public void setcontentView() {
+    public void inti() {
         context = this;
 
         object = getIntent().getParcelableExtra("data");
 
         view = LayoutInflater.from(context).inflate(R.layout.contactlist_main, null);
-    }
-
-    @Override
-    public void init() {
-
-        setTitle(object.getTitle());
-        Nav(0);
     }
 
     @Override

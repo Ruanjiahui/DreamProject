@@ -15,7 +15,7 @@ import com.example.administrator.data_sdk.Judge;
 import com.example.administrator.data_sdk.SystemInfo;
 import com.example.administrator.ui_sdk.DensityUtil;
 import com.example.administrator.ui_sdk.ListView_Object;
-import com.example.administrator.ui_sdk.Other.BaseActivity;
+import com.example.administrator.ui_sdk.MyBaseActivity.BaseActivity;
 import com.example.administrator.ui_sdk.Other.MyBaseAdapter;
 import com.example.administrator.websocket.Wamp;
 import com.example.administrator.websocket.WampConnection;
@@ -53,8 +53,22 @@ public class Other extends BaseActivity implements AdapterView.OnItemClickListen
     private EditText other_edit1, other_edit2, other_edit3 = null;
     private Wamp mConnection = null;
 
+//    @Override
+//    public void setcontentView() {
+//
+//    }
+
+//    @Override
+//    public void init() {
+//
+//        setTitle(data.getTitle());
+//        setTitleRight("保存");
+//        setBackground(R.color.WhiteSmoke);
+//        Nav(0);
+//    }
+
     @Override
-    public void setcontentView() {
+    public void inti() {
         context = this;
 
         data = getIntent().getParcelableExtra("data");
@@ -93,15 +107,6 @@ public class Other extends BaseActivity implements AdapterView.OnItemClickListen
             });
         }
         contentView.addView(view);
-    }
-
-    @Override
-    public void init() {
-
-        setTitle(data.getTitle());
-        setTitleRight("保存");
-        setBackground(R.color.WhiteSmoke);
-        Nav(0);
     }
 
     @Override

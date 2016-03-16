@@ -20,7 +20,7 @@ import com.example.administrator.dreamproject.Identification;
 import com.example.administrator.dreamproject.R;
 import com.example.administrator.ui_sdk.DensityUtil;
 import com.example.administrator.ui_sdk.ListView_Object;
-import com.example.administrator.ui_sdk.Other.BaseActivity;
+import com.example.administrator.ui_sdk.MyBaseActivity.BaseActivity;
 import com.example.administrator.ui_sdk.View.SystemManager;
 
 import java.util.ArrayList;
@@ -86,12 +86,13 @@ public class Fragment4 extends Fragment implements AdapterView.OnItemClickListen
 
 
         base_top_title.setText("商城");
+        base_top_title.setTextColor(getResources().getColorStateList(R.color.white));
         base_top_text1.setVisibility(View.GONE);
         base_top_relative.setVisibility(View.GONE);
         fragment3_top.setBackgroundResource(R.color.Blue);
         base_top_image1.setImageResource(R.mipmap.setting);
         base_top_image1.setVisibility(View.VISIBLE);
-        SystemManager.ViewColor(fragment3_top, activity);
+        SystemManager.setWindowColor(fragment3_top, activity);
         DensityUtil.setHeight(fragment3_top, BaseActivity.height / 12);
 
         base_top_image1.setOnClickListener(this);

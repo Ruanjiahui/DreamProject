@@ -44,10 +44,10 @@ import com.example.administrator.http_sdk.HttpInterface;
 import com.example.administrator.ui_sdk.ChlidData;
 import com.example.administrator.ui_sdk.DensityUtil;
 import com.example.administrator.ui_sdk.ListView_Object;
+import com.example.administrator.ui_sdk.MyBaseActivity.BaseActivity;
 import com.example.administrator.ui_sdk.MyOnClickInterface;
-import com.example.administrator.ui_sdk.Other.BaseActivity;
 import com.example.administrator.ui_sdk.Other.MyBaseAdapter;
-import com.example.administrator.ui_sdk.Other.MyViewPagerAdapter;
+import com.example.administrator.ui_sdk.Other.MyViewPagerItemAdapter;
 import com.example.administrator.ui_sdk.View.MyDialog;
 import com.example.administrator.ui_sdk.View.SystemManager;
 
@@ -65,7 +65,7 @@ public class Fragment1 extends Fragment implements ViewPager.OnPageChangeListene
     //储存Fragment的链表
     private ArrayList<Fragment> list = null;
     //Fragment适配器
-    private MyViewPagerAdapter pagerAdapter = null;
+    private MyViewPagerItemAdapter pagerAdapter = null;
     //储存ListViewObject链表
     private ArrayList<ListView_Object> objects = null;
 
@@ -118,7 +118,7 @@ public class Fragment1 extends Fragment implements ViewPager.OnPageChangeListene
         adapter = new MyBaseAdapter(context, objects, 1);
         fragment1_listview.setAdapter(adapter);
         //设置沉寂式状态栏
-        SystemManager.ViewColor(person_linear, getActivity());
+        SystemManager.setWindowColor(person_linear, getActivity());
 
         setTileTxt(user);
 
@@ -231,8 +231,8 @@ public class Fragment1 extends Fragment implements ViewPager.OnPageChangeListene
         list.add(new FragmentNews(R.mipmap.get1, "“伟大复兴梦想节”的来源"));
         list.add(new FragmentNews(R.mipmap.get2, "伟大复兴（北京）文化产业股份公司介绍"));
         //配置适配器
-        pagerAdapter = new MyViewPagerAdapter(getChildFragmentManager(),
-                list, true);
+        pagerAdapter = new MyViewPagerItemAdapter(getChildFragmentManager(),
+                list);
         View view = LayoutInflater.from(context).inflate(R.layout.viewpager_top, null);
         fragment1_viewpager = (ViewPager) view.findViewById(R.id.fragment1_viewpager);
         fragment1_viewpager.setAdapter(pagerAdapter);
@@ -273,15 +273,12 @@ public class Fragment1 extends Fragment implements ViewPager.OnPageChangeListene
         switch (v.getId()) {
             case R.id.person_linear:
                 //登录成功后才进入个人中心
-
-                if (SQLite_Table.StateLogin(context)) {
+                if (SQLite_Table.StateLogin(context))
                     Common.IntentActivity(activity, Me.class, user, Identification.Main_Logo);
-                } else {
+                else
                     Common.IntentActivity(activity, Load.class, null, Identification.Load);
-                }
                 break;
             default:
-
                 break;
         }
     }
@@ -304,8 +301,6 @@ public class Fragment1 extends Fragment implements ViewPager.OnPageChangeListene
 
     @Override
     public void ItemOnClick(int position) {
-//        User user = new User();
-//        user =
         //跳转到个人信息
         Common.IntentActivity(context, Personal.class, user);
     }

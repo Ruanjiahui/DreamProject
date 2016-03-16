@@ -1,18 +1,11 @@
 package com.example.administrator.ui_sdk;
 
-import android.annotation.TargetApi;
-import android.app.Activity;
 import android.content.Context;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-
-import com.example.administrator.ui_sdk.View.SystemManager;
 
 /**
  * Created by Administrator on 2016/1/11.
@@ -42,7 +35,7 @@ public class DensityUtil {
      * @param height
      */
     public static void setHeight(View view, int height) {
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         params.height = height;
         view.setLayoutParams(params);
     }
@@ -79,7 +72,7 @@ public class DensityUtil {
      * @param height
      */
     public static void setRelHeight(View view, int height) {
-        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
         params.height = height;
         view.setLayoutParams(params);
     }
@@ -117,18 +110,6 @@ public class DensityUtil {
         view.setLayoutParams(params);
     }
 
-
-    /**
-     * 设置状态栏的颜色
-     * 此方法是获取组件的背景颜色
-     * 该方法为私有，现在仅提供内部使用
-     */
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-    public static void ViewColor(View view, Activity activity) {
-        Drawable drawable = view.getBackground();
-        ColorDrawable colorDrawable = (ColorDrawable) drawable;
-        new SystemManager().setTitleBarColor(colorDrawable.getColor(), activity);
-    }
 
     public static void setLinearSize(View view, int width, int height, int up, int down, int left, int right) {
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);

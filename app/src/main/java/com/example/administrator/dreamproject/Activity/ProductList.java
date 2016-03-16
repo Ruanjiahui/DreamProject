@@ -15,8 +15,7 @@ import com.example.administrator.data_sdk.Transformation;
 import com.example.administrator.dreamproject.Identification;
 import com.example.administrator.dreamproject.R;
 import com.example.administrator.ui_sdk.ListView_Object;
-import com.example.administrator.ui_sdk.Other.BaseActivity;
-import com.example.administrator.ui_sdk.Other.MyBaseAdapter;
+import com.example.administrator.ui_sdk.MyBaseActivity.BaseActivity;
 
 import java.util.ArrayList;
 
@@ -34,8 +33,27 @@ public class ProductList extends BaseActivity implements AdapterView.OnItemClick
     private ArrayList<ListView_Object> objects = null;
     private Activity activity = null;
 
+//    @Override
+//    public void setcontentView() {
+//
+//    }
+//
+//    @Override
+//    public void init() {
+//
+//        addItem();
+//
+//        setTitle(object.getTitle());
+//        Nav(0);
+//        TitleBarRight(false);
+//
+//        product_listview.setAdapter(new MyBaseAdapter(context, objects, 1));
+//
+//        product_listview.setOnItemClickListener(this);
+//    }
+
     @Override
-    public void setcontentView() {
+    public void inti() {
         object = getIntent().getParcelableExtra("data");
 
         context = this;
@@ -44,20 +62,6 @@ public class ProductList extends BaseActivity implements AdapterView.OnItemClick
         contentView.addView(view);
 
         id();
-    }
-
-    @Override
-    public void init() {
-
-        addItem();
-
-        setTitle(object.getTitle());
-        Nav(0);
-        TitleBarRight(false);
-
-        product_listview.setAdapter(new MyBaseAdapter(context, objects, 1));
-
-        product_listview.setOnItemClickListener(this);
     }
 
     @Override

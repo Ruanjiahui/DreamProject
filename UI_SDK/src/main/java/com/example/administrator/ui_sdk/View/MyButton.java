@@ -2,6 +2,7 @@ package com.example.administrator.ui_sdk.View;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.widget.Button;
 
 import com.example.administrator.ui_sdk.R;
@@ -13,55 +14,51 @@ import com.example.administrator.ui_sdk.R;
  */
 public class MyButton extends Button {
 
-    //判断按钮样式是否被修改过
-    private boolean flag = false;
-
+    private Context context = null;
     public MyButton(Context context) {
         super(context);
-        inti();
+        this.context = context;
     }
 
     public MyButton(Context context, AttributeSet attrs) {
         super(context, attrs);
-        inti();
+        this.context = context;
     }
 
     public MyButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        inti();
+        this.context = context;
     }
 
-    /**
-     * 初始化配置
-     */
-    private void inti() {
-//        this.setBackgroundResource(R.drawable.button_selector);
-        this.setTextColor(0xffffffff);
-    }
 
     /**
-     * 判断按钮是否可以点击
-     * * @param clickable
+     * 这个是禁止按钮的点击事件
+     *
+     * @param clickable
      */
-    public void setMyClickable(boolean clickable) {
-        if (!flag) {
-            if (!clickable) {
-                this.setBackgroundResource(R.drawable.button_down);
-                this.setTextColor(0xff1cb3ee);
-                this.setClickable(false);
-                this.setEnabled(false);
-
-            } else {
-                this.setBackgroundResource(R.drawable.button_selector);
-                this.setTextColor(0xffffffff);
-                this.setClickable(true);
-                this.setEnabled(true);
-            }
+    @Override
+    public void setClickable(boolean clickable) {
+        super.setClickable(clickable);
+        if (clickable)
+            this.setBackground(this.getBackground());
+        else {
+            Log.e("Ruan", "" + this.isClickable() + "--------" + this.isEnabled());
+            this.setBackgroundResource(R.drawable.button_down_blue);
         }
     }
 
-    public void setSeclector(int resource) {
-        this.setBackgroundResource(resource);
-        flag = true;
+    /**
+     * 这个是禁止按钮点击颜色变颜色
+     *
+     * @param enabled
+     */
+    @Override
+    public void setEnabled(boolean enabled) {
+        super.setEnabled(enabled);
+        if (enabled)
+            this.setBackgroundResource(R.drawable.button_selector_blue);
+        else {
+            this.setBackgroundResource(R.drawable.button_down_blue);
+        }
     }
 }

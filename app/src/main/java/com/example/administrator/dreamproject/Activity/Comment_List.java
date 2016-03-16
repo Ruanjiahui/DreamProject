@@ -21,11 +21,9 @@ import com.example.administrator.data_sdk.SystemInfo;
 import com.example.administrator.data_sdk.Transformation;
 import com.example.administrator.dreamproject.Fragment.Chat_Botton_Fragment;
 import com.example.administrator.dreamproject.R;
-import com.example.administrator.ui_sdk.DensityUtil;
 import com.example.administrator.ui_sdk.ListView_Object;
-import com.example.administrator.ui_sdk.Other.BaseActivity;
+import com.example.administrator.ui_sdk.MyBaseActivity.BaseActivity;
 import com.example.administrator.ui_sdk.Other.MyBaseAdapter;
-import com.example.administrator.ui_sdk.Other.MyViewPagerAdapter;
 import com.example.administrator.ui_sdk.View.MyViewPager;
 
 import java.util.ArrayList;
@@ -49,6 +47,25 @@ public class Comment_List extends BaseActivity implements TextWatcher, OnItemCli
     private MyViewPager chat_bottom_viewpager = null;
     private ImageView chat_bottom_image = null;
     private MyBaseAdapter adapter = null;
+
+    @Override
+    public void inti() {
+        acitivityData = getIntent().getParcelableExtra("data");
+        context = this;
+        activity = (Activity) context;
+
+        logo = Transformation.Resource2Bitmap(activity, R.mipmap.ic_launcher);
+        view = LayoutInflater.from(context).inflate(R.layout.comment_list, null);
+
+        comment_list_listview = (ListView) view.findViewById(R.id.comment_list_listview);
+        chat_bottom_edit = (EditText) view.findViewById(R.id.chat_bottom_edit);
+        chat_bottom_but = (Button) view.findViewById(R.id.chat_bottom_but);
+        chat_bottom_viewpager = (MyViewPager) view.findViewById(R.id.chat_bottom_viewpager);
+        chat_bottom_image = (ImageView) view.findViewById(R.id.chat_bottom_image);
+
+
+        contentView.addView(view);
+    }
 
     @Override
     public void Click(View view) {
@@ -81,45 +98,31 @@ public class Comment_List extends BaseActivity implements TextWatcher, OnItemCli
         }
     }
 
-    @Override
-    public void setcontentView() {
-        acitivityData = getIntent().getParcelableExtra("data");
-        context = this;
-        activity = (Activity) context;
-
-        logo = Transformation.Resource2Bitmap(activity, R.mipmap.ic_launcher);
-        view = LayoutInflater.from(context).inflate(R.layout.comment_list, null);
-
-        comment_list_listview = (ListView) view.findViewById(R.id.comment_list_listview);
-        chat_bottom_edit = (EditText) view.findViewById(R.id.chat_bottom_edit);
-        chat_bottom_but = (Button) view.findViewById(R.id.chat_bottom_but);
-        chat_bottom_viewpager = (MyViewPager) view.findViewById(R.id.chat_bottom_viewpager);
-        chat_bottom_image = (ImageView) view.findViewById(R.id.chat_bottom_image);
-
-
-        contentView.addView(view);
-    }
-
-    @Override
-    public void init() {
-        TitleBarRight(false);
-        setTitle(acitivityData.getTitle());
-        Nav(0);
-        setBackground(R.color.WhiteSmoke);
-        addItem();
-        instance();
-
-        DensityUtil.setHeight(chat_bottom_viewpager, BaseActivity.height / 5);
-
-        adapter = new MyBaseAdapter(context, list, 0);
-        comment_list_listview.setAdapter(adapter);
-
-        chat_bottom_image.setOnClickListener(this);
-        chat_bottom_edit.addTextChangedListener(this);
-        chat_bottom_edit.setOnClickListener(this);
-        chat_bottom_but.setOnClickListener(this);
-        comment_list_listview.setOnItemClickListener(this);
-    }
+//    @Override
+//    public void setcontentView() {
+//
+//    }
+//
+//    @Override
+//    public void init() {
+//        TitleBarRight(false);
+//        setTitle(acitivityData.getTitle());
+//        Nav(0);
+//        setBackground(R.color.WhiteSmoke);
+//        addItem();
+//        instance();
+//
+//        DensityUtil.setHeight(chat_bottom_viewpager, BaseActivity.height / 5);
+//
+//        adapter = new MyBaseAdapter(context, list, 0);
+//        comment_list_listview.setAdapter(adapter);
+//
+//        chat_bottom_image.setOnClickListener(this);
+//        chat_bottom_edit.addTextChangedListener(this);
+//        chat_bottom_edit.setOnClickListener(this);
+//        chat_bottom_but.setOnClickListener(this);
+//        comment_list_listview.setOnItemClickListener(this);
+//    }
 
     private void addItem() {
         list = new ArrayList<>();
@@ -144,7 +147,7 @@ public class Comment_List extends BaseActivity implements TextWatcher, OnItemCli
         arrayList.add(new Chat_Botton_Fragment());
         arrayList.add(new Chat_Botton_Fragment());
 
-        chat_bottom_viewpager.setAdapter(new MyViewPagerAdapter(getSupportFragmentManager(), arrayList, false));
+//        chat_bottom_viewpager.setAdapter(new MyViewPagerAdapter(getSupportFragmentManager(), arrayList, false));
     }
 
     @Override

@@ -2,7 +2,7 @@ package com.example.administrator.ui_sdk;
 
 import android.content.Context;
 
-import com.example.administrator.ui_sdk.Other.BaseActivity;
+import com.example.administrator.ui_sdk.MyBaseActivity.BaseActivity;
 import com.example.administrator.ui_sdk.View.MyDialog;
 
 import java.util.ArrayList;

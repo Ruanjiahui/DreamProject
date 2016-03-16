@@ -1,1 +1,1 @@
-include ':app', ':UI_SDK', ':Data_SDK', ':WebSocket', ':share_sdk', ':http_sdk'
+include ':app', ':UI_SDK' , ':Data_SDK', ':WebSocket', ':share_sdk', ':http_sdk'
