@@ -31,7 +31,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
     }
 
-    /**
+    /** 123
      * 更新数据库的操作
      *
      * @param db
